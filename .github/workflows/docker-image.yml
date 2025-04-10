@@ -50,8 +50,9 @@ jobs:
       run: |-
               docker build -t cloudshirt-web -f src/Web/Dockerfile .
               docker build -t cloudshirt-api -f src/PublicApi/Dockerfile .
-              docker tag cloudshirt-web:latest 719118073752.dkr.ecr.us-east-1.amazonaws.com/cloudshirt-repo:cloudshirt-web-latest
-              docker tag cloudshirt-api:latest 719118073752.dkr.ecr.us-east-1.amazonaws.com/cloudshirt-repo:cloudshirt-api-latest
+              docker tag us-east1-docker.pkg.dev/atlantean-wares-450613-s7/cloudshirtpermanentrepository:cloudshirt-web-latest
+              docker tag us-east1-docker.pkg.dev/atlantean-wares-450613-s7/cloudshirtpermanentrepository:cloudshirt-api-latest
+              
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
