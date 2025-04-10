@@ -9,7 +9,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.SECRETS_GCP_PROJECT_ID }}
-  GKE_CLUSTER: my-cluster    # cluster name
+  GKE_CLUSTER: example-autopilot-cluster    # cluster name
   GKE_ZONE: us-central1  # cluster zone
   IMAGE: micro # image name
   IMAGE_TAG: blue # image tag
