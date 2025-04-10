@@ -48,11 +48,10 @@ jobs:
     # Build the Docker image
     - name: Build
       run: |-
-        docker build \
-          --f src/Web/Dockerfile . \
-          --tag "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE:$IMAGE_TAG" \
-          --build-arg GITHUB_SHA="$GITHUB_SHA" \
-          --build-arg GITHUB_REF="$GITHUB_REF" \
+              docker build -t cloudshirt-web -f src/Web/Dockerfile .
+              docker build -t cloudshirt-api -f src/PublicApi/Dockerfile .
+              docker tag cloudshirt-web:latest 719118073752.dkr.ecr.us-east-1.amazonaws.com/cloudshirt-repo:cloudshirt-web-latest
+              docker tag cloudshirt-api:latest 719118073752.dkr.ecr.us-east-1.amazonaws.com/cloudshirt-repo:cloudshirt-api-latest
           .
     # Push the Docker image to Google Container Registry
     - name: Publish
